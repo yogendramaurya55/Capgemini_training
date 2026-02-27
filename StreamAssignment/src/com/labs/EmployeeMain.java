@@ -26,5 +26,10 @@ public class EmployeeMain {
 		System.out.println("------------------------------------------------------------------------");
 		
 		EmployeeService.getDepartmentEmpWithout();
+		
+		
+		System.out.println("------------------------------------------------------------------------");
+		
+		System.out.print(EmployeeService.getCount().getDepartmentName());;
 	}
 }
