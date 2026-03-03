@@ -1,39 +1,34 @@
 package com;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import com.cg.bean.Employee;
+import com.cg.dao.EmployeeDao;
+
 
 public class EmployeeService {
 
+    private static EmployeeDao dao = new EmployeeDao();
+
     public static double calcAvgPay() {
-        return EmployeeRepository.getEmpList().stream()
-                .map(emp -> emp.getPay())
-                .collect(Collectors.averagingDouble(val -> val));
+        return dao.calcAvgPay();
     }
 
     public static Map<String, Optional<Employee>> getMaxPayByDept() {
-        return EmployeeRepository.getEmpList().stream()
-                .filter(emp -> emp.getDept() != null)
-                .collect(Collectors.groupingBy(emp -> emp.getDept().getDeptName(),
-                        Collectors.maxBy(Comparator.comparing(emp -> emp.getPay()))));
+        return dao.getMaxPayByDept();
     }
 
     public static Map<String, Double> getTotalPayByDept() {
-        return EmployeeRepository.getEmpList().stream()
-                .filter(emp -> emp.getDept() != null)
-                .collect(Collectors.groupingBy(emp -> emp.getDept().getDeptName(),
-                        Collectors.summingDouble(emp -> emp.getPay())));
+        return dao.getTotalPayByDept();
     }
 
     public static void displayNameAndPay() {
-        EmployeeRepository.getEmpList()
-                .forEach(emp -> System.out.println(emp.getFName() + " : " + emp.getPay()));
+        dao.displayNameAndPay();
     }
 
     public static List<Employee> sortByPayDesc() {
-        return EmployeeRepository.getEmpList().stream()
-                .sorted((emp1, emp2) -> Double.compare(emp2.getPay(), emp1.getPay()))
-                .collect(Collectors.toList());
+        return dao.sortByPayDesc();
     }
 }

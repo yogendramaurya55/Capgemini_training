@@ -1,4 +1,4 @@
-package com;
+package com.cg.bean;
 
 public class Department {
 

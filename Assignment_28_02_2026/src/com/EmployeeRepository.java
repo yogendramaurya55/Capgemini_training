@@ -5,6 +5,9 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cg.bean.Department;
+import com.cg.bean.Employee;
+
 public class EmployeeRepository {
 
     private static final List<Employee> empList;

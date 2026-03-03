@@ -1,8 +1,11 @@
-package com;
+package com.cg.bean;
 
+import java.sql.Connection;
 import java.time.LocalDate;
 
 public class Employee {
+	
+	
 
     private Integer empId;
     private String fName;
@@ -18,7 +21,7 @@ public class Employee {
     public Employee(Integer empId, String fName, String lName,
                     String mail, String phone, LocalDate joinDate,
                     String role, double pay, Integer mgrId,
-                    Department dept) {
+                    int i) {
 
         this.empId = empId;
         this.fName = fName;
@@ -29,7 +32,7 @@ public class Employee {
         this.role = role;
         this.pay = pay;
         this.mgrId = mgrId;
-        this.dept = dept;
+        this.dept = i;
     }
 
     public Employee() {
