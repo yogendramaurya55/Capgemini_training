@@ -16,7 +16,7 @@ public class Question {
 	private int qid;
 	private String qName;
 	private String level;
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "question" ,  cascade = CascadeType.ALL)
 	private List<Answer> answer;
 	
 	
@@ -30,7 +30,6 @@ public class Question {
 		super();
 		this.qName = qName;
 		this.level = level;
-		this.answer = answer;
 	}
 	public int getQid() {
 		return qid;

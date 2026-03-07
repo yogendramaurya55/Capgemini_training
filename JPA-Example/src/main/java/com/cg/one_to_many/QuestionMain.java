@@ -16,23 +16,29 @@ public class QuestionMain {
 		
 		
 //		Question q = new Question("What is API ?" , "M");
-//		List<Answer> answers = new ArrayList<>(Arrays.asList(new Answer("Application programming interface ") , new Answer("hepls to connect frontend to backend ")));
-//		q.setAnswer(answers);
-//		
-//		
-//		
+//		List<Answer> answers = new ArrayList<>(Arrays.asList(new Answer("Application programming interface " , q) , new Answer("hepls to connect frontend to backend " , q)));
+//		q.setAnswer(answers);	
 //		em.getTransaction().begin();
 //		em.persist(q);
+		
 //		em.getTransaction().commit();
 		
 		
-		Question q = em.find(Question.class, 2);
+//		Question q = em.find(Question.class, 1);
+//		
+//		System.out.println(q);
+//		
+//		List<Answer> ans = q.getAnswer();
+//		
+//		System.out.println(ans);
 		
-		System.out.println(q);
 		
-		List<Answer> ans = q.getAnswer();
+		Answer ans = em.find(Answer.class, 2);
 		
-		System.out.println(ans);
+		System.out.println(ans.getQuestion());
+		
+		
+		
 	}
 
 }
