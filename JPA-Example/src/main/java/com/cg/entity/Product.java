@@ -2,17 +2,30 @@ package com.cg.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Entity
+@Table(name = "productdata")
 public class Product {
 	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name = "product_pid")
 	private int pid;
+	@Column(name = "product_name")
 	private String name;
+	@Column(name = "product_price")
 	private double price;
+	@Column(name = "product_qty")
 	private int qty;
+	@Column(name = "product_dom")
 	private LocalDate dom;
 	
 	
@@ -25,9 +38,8 @@ public class Product {
 		
 	}
 
-	public Product(int pid, String name, double price, int qty, LocalDate dom) {
+	public Product( String name, double price, int qty, LocalDate dom) {
 		super();
-		this.pid = pid;
 		this.name = name;
 		this.price = price;
 		this.qty = qty;

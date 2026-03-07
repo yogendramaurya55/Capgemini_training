@@ -1,6 +1,5 @@
 package com.cg.bean;
 
-import java.sql.Connection;
 import java.time.LocalDate;
 
 public class Employee {
@@ -21,7 +20,7 @@ public class Employee {
     public Employee(Integer empId, String fName, String lName,
                     String mail, String phone, LocalDate joinDate,
                     String role, double pay, Integer mgrId,
-                    int i) {
+                    Department i) {
 
         this.empId = empId;
         this.fName = fName;
