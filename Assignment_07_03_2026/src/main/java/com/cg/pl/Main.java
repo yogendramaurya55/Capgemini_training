@@ -92,7 +92,7 @@ public class Main {
 			}
 
 			case 6: {
-				System.out.println("Exiting...");
+				System.out.println("Exited");
 				sc.close();
 				System.exit(0);
 			}
@@ -103,4 +103,3 @@ public class Main {
 		}
 	}
 }
-
