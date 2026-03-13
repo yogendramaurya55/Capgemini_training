@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+         <!-- bean definitions here -->
+         <bean scope = "singleton" id="hello" class="com.cg.bean.HelloWorld">
+         <property name="name" value="swati"/> 
+         <!-- <constructor-args name="name" value = "yogendra" /> -->
+         
+         <property name = "language" >
+         <!-- <list>
+         <value>Hindi</value>
+         <value>English</value>
+         <value>Sanskrit</value>
+         </list> -->
+         
+         <set>
+         <value>Hindi</value>
+         <value>English</value>
+         <value>Sanskrit</value>
+         <value>Hindi</value>
+         <value>English</value>
+         <value>Sanskrit</value>
+         </set>
+         </property>
+         </bean>
+         
+         
+         <bean id="employee" class="com.cg.bean.Employee">
+        <!-- <property name = "empid" value = "1001" />
+         <property name = "name" value = "smith" />
+         <property name = "address" ref= "add" /> -->
+         
+         <constructor-arg name = "empid" value="1011"/>
+         <constructor-arg name = "name" value="smith"/>
+         <constructor-arg name = "address" ref = "add" />
+         
+         </bean>
+         
+         <bean id="add" class="com.cg.bean.Address">
+         
+         <!-- <property name = "city" value = "california" />
+         <property name = "country" value = "usa" />
+         <property name = "zip" value= "47583" />
+         -->
+         
+         <constructor-arg name = "city" value="california"/>
+         <constructor-arg name = "country" value="usa"/>
+         <constructor-arg name = "zip" value="101112"/>
+         
+         </bean>
+         
+         
+
+</beans>
