@@ -5,21 +5,23 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
-public class CalculatorTest {
+class CalculatorTest {
 	
 	@Test
-	public void calTest() {
+	void calTest() {
 		
 		Calculator cal = new Calculator();
 		
-		assertEquals(cal.add(7, 3) , 10);
+		assertEquals( 10 , cal.add(3, 7));
 		
 		
 	}
 	
 	@Test
-	public void isPrimeTest() {
+	@Timeout(2)
+	void isPrimeTest() {
 		Calculator cal = new Calculator();
 		
 		assertFalse(cal.isPrime(-1));

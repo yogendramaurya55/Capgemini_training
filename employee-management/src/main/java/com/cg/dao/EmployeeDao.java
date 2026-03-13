@@ -1,5 +1,6 @@
 package com.cg.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.cg.bean.Employee;
@@ -54,15 +55,18 @@ public class EmployeeDao implements IEmployeeDao{
 	@Override
 	public List<Employee> getAll() {
 		// TODO Auto-generated method stub
+		List<Employee> emps = new ArrayList<>();
 		try {
 			Query q = em.createQuery("select e from Employee e");
-			List<Employee> emps = q.getResultList();
+			emps = q.getResultList();
 			
 			return emps;
 		}catch(Exception e) {
 			e.printStackTrace();
-			return null;
+			return new ArrayList<>();
 		}
+		
+		
 		
 	}
 

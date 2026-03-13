@@ -20,7 +20,7 @@ public class Employee {
     public Employee(Integer empId, String fName, String lName,
                     String mail, String phone, LocalDate joinDate,
                     String role, double pay, Integer mgrId,
-                    Department i) {
+                    int i) {
 
         this.empId = empId;
         this.fName = fName;

@@ -8,12 +8,14 @@ import com.cg.service.EmployeeService;
 
 public class EmployeeMain {
 
+	//main method
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        boolean isTrue = true;
         EmployeeService es = new EmployeeService();
 
-        while (true) {
+        while (isTrue) {
             System.out.println("1. Create Employee");
             System.out.println("2. Find Employee by ID");
             System.out.println("3. Get All Employees");
@@ -35,9 +37,9 @@ public class EmployeeMain {
                     String email = sc.nextLine();
 
                     System.out.print("Enter DOB (yyyy-mm-dd): ");
-                    String dob = sc.nextLine();
+                    final String dob = sc.nextLine();
 
-                    String result = es.createEmployee(
+                    final String result = es.createEmployee(
                             new Employee(name, email, dob));
                     System.out.println(result);
                     break;
@@ -51,7 +53,7 @@ public class EmployeeMain {
                     break;
 
                 case 3:
-                    List<Employee> list = es.getAllEmployee();
+                    final List<Employee> list = es.getAllEmployee();
                     list.forEach(System.out::println);
                     break;
 
@@ -77,6 +79,7 @@ public class EmployeeMain {
                 case 6:
                     System.out.println("Exiting...");
                     sc.close();
+                    isTrue = false;
                     System.exit(0);
 
                 default:
