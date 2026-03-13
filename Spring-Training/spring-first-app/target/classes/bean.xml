@@ -27,28 +27,28 @@
          </property>
          </bean>
          
-         
+         <context:annotation-config/>
          <bean id="employee" class="com.cg.bean.Employee">
-        <!-- <property name = "empid" value = "1001" />
+         <property name = "empid" value = "1001" />
          <property name = "name" value = "smith" />
-         <property name = "address" ref= "add" /> -->
+         <property name = "address" ref= "add" /> 
          
-         <constructor-arg name = "empid" value="1011"/>
+        <!-- <constructor-arg name = "empid" value="1011"/>
          <constructor-arg name = "name" value="smith"/>
-         <constructor-arg name = "address" ref = "add" />
+         <constructor-arg name = "address" ref = "add" /> -->
          
          </bean>
          
          <bean id="add" class="com.cg.bean.Address">
          
-         <!-- <property name = "city" value = "california" />
+         <property name = "city" value = "california" />
          <property name = "country" value = "usa" />
          <property name = "zip" value= "47583" />
-         -->
          
-         <constructor-arg name = "city" value="california"/>
+         
+         <!--<constructor-arg name = "city" value="california"/>
          <constructor-arg name = "country" value="usa"/>
-         <constructor-arg name = "zip" value="101112"/>
+         <constructor-arg name = "zip" value="101112"/> -->
          
          </bean>
          

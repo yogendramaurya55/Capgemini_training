@@ -1,8 +1,11 @@
 package com.cg.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Employee {
 	private int empid;
 	private String name;
+	@Autowired
 	private Address address;
 	
 	
