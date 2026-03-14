@@ -1,5 +1,7 @@
 package com.cg.main;
 
+import java.util.Scanner;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,9 +13,17 @@ public class EmployeeMain {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the employee id");
+		int EmployeeId = sc.nextInt();
+		
 		SBU e = (SBU) ctx.getBean("sbu");
-		System.out.println(e);
-		e.getEmpList().forEach(System.out::println);
+		
+		for(Employee emp :e.getEmpList()){
+			if(emp.getEmployeeId() == EmployeeId) {
+				emp.displayEmployeeDeatils();
+			}
+		}
 		
 		
 		
