@@ -1,8 +1,15 @@
 package com.cg.bean;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Address {
+	@Value(value = "${address.city}")
 	private String city;
+	@Value(value = "${address.country}")
 	private String country;
+	@Value(value = "${address.zip}")
 	private int zip;
 	
 	

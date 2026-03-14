@@ -3,6 +3,9 @@ package com.cg.bean;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class HelloWorld {
 	private String name;
 	private Set<String> language;

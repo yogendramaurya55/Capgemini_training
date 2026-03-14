@@ -5,16 +5,16 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
          <!-- bean definitions here -->
-         <bean scope = "singleton" id="hello" class="com.cg.bean.HelloWorld">
+        <!-- <bean scope = "singleton" id="hello" class="com.cg.bean.HelloWorld">
          <property name="name" value="swati"/> 
-         <!-- <constructor-args name="name" value = "yogendra" /> -->
+        <constructor-args name="name" value = "yogendra" /> 
          
          <property name = "language" >
-         <!-- <list>
+         <list>
          <value>Hindi</value>
          <value>English</value>
          <value>Sanskrit</value>
-         </list> -->
+         </list> 
          
          <set>
          <value>Hindi</value>
@@ -33,9 +33,9 @@
          <property name = "name" value = "smith" />
          <property name = "address" ref= "add" /> 
          
-        <!-- <constructor-arg name = "empid" value="1011"/>
+        <constructor-arg name = "empid" value="1011"/>
          <constructor-arg name = "name" value="smith"/>
-         <constructor-arg name = "address" ref = "add" /> -->
+         <constructor-arg name = "address" ref = "add" /> 
          
          </bean>
          
@@ -46,12 +46,18 @@
          <property name = "zip" value= "47583" />
          
          
-         <!--<constructor-arg name = "city" value="california"/>
+         <constructor-arg name = "city" value="california"/>
          <constructor-arg name = "country" value="usa"/>
-         <constructor-arg name = "zip" value="101112"/> -->
+         <constructor-arg name = "zip" value="101112"/> 
          
          </bean>
          
+         -->
          
+         
+         
+         <context:annotation-config />
+         <context:property-placeholder location = "classpath:data.properties" />
+         <context:component-scan base-package = "com" />
 
 </beans>
