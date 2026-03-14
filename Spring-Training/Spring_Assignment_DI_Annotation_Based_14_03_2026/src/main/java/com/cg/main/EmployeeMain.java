@@ -13,9 +13,11 @@ public class EmployeeMain {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
 		
-		Employee e = (Employee) ctx.getBean("employee");
+		SBU e = (SBU) ctx.getBean("sbu");
 		
-		e.displayEmployeeDeatils();
+		System.out.println(e);
+		
+		e.getEmpList().forEach(System.out::println);
 		
 	}
 }

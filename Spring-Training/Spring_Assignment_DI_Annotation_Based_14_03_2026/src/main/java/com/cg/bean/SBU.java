@@ -13,7 +13,7 @@ public class SBU {
 	private String sbuName;
 	@Value(value="${sbu.head}")
 	private String sbuHead;
-//	private List<Employee> empList;
+	private List<Employee> empList;
 	
 	public SBU(){
 		super();
@@ -43,13 +43,13 @@ public class SBU {
 		this.sbuHead = subHead;
 	}
 
-//	public List<Employee> getEmpList() {
-//		return empList;
-//	}
-//
-//	public void setEmpList(List<Employee> empList) {
-//		this.empList = empList;
-//	}
+	public List<Employee> getEmpList() {
+		return empList;
+	}
+
+	public void setEmpList(List<Employee> empList) {
+		this.empList = empList;
+	}
 
 	@Override
 	public String toString() {
