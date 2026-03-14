@@ -7,15 +7,26 @@
 	
 	
 	<bean id ="book" class = "com.cg.bean.Book">
-	<property name = "bookId" value = "1" />
+	
+	<!-- <property name = "bookId" value = "1" />
 	<property name = "title" value = "java" />
-	<property name = "author" value = "smith" />
+	<property name = "author" value = "smith" /> -->
+	
+	<constructor-arg name = "bookId" value = "1" />
+	<constructor-arg name = "title" value = "java" />
+	<constructor-arg name = "author" value = "smith" />
+	
+	
 	</bean>
 	
 	<bean id = "lib" class = "com.cg.bean.Librarian">
-	<property name = "librarianId" value = "2" />
+	<!-- <property name = "librarianId" value = "2" />
 	<property name = "name" value = "rohan" />
-	<property name = "book" ref="book" />
+	<property name = "book" ref="book" /> -->
+	
+	<constructor-arg name = "librarianId" value = "2" />
+	<constructor-arg name = "name" value = "rohan" />
+	<constructor-arg name = "book" ref="book" />
 	</bean>
 
 
