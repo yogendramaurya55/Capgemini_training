@@ -13,11 +13,20 @@ public class EmployeeMain {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the employee id");
+		int id = sc.nextInt();
+		
 		SBU e = (SBU) ctx.getBean("sbu");
 		
-		System.out.println(e);
 		
-		e.getEmpList().forEach(System.out::println);
+		
+		for(Employee emp : e.getEmpList()) {
+			
+			if(id == emp.getEmployeeId()) {
+				emp.displayEmployeeDeatils();
+			}
+		}
 		
 	}
 }
