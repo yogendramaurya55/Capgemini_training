@@ -1,5 +1,6 @@
 package com.cg.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -11,8 +12,8 @@ public class Employee {
 	private String employeeName;
 	@Value(value="${emp.sal}")
 	private double salary;
-	@Value(value="${emp.bsunit}")
-	private String businessUnit;
+	@Autowired
+	private SBU businessUnit;
 	@Value(value="${emp.age}")
 	private int age;
 
@@ -44,11 +45,11 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public String getBusinessUnit() {
+	public SBU getBusinessUnit() {
 		return businessUnit;
 	}
 
-	public void setBusinessUnit(String businessUnit) {
+	public void setBusinessUnit(SBU businessUnit) {
 		this.businessUnit = businessUnit;
 	}
 
@@ -60,32 +61,32 @@ public class Employee {
 		this.age = age;
 	}
 
-	public void displayEmployeeDeatils() {
-		System.out.println("Employee ID : " + employeeId);
-		System.out.println("Employee Name : " + employeeName);
-		System.out.println("Employee Salary : " + salary);
-		System.out.println("Employee BU : " + businessUnit);
-		System.out.println("Employee Age : " + age);
-
-	}
-	
-	
-
 //	public void displayEmployeeDeatils() {
-//		
-//		System.out.println("Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary + ", age="
-//				+ age + "]");
-//		
-//		getSbuDetails();
-//		
-//		
+//		System.out.println("Employee ID : " + employeeId);
+//		System.out.println("Employee Name : " + employeeName);
+//		System.out.println("Employee Salary : " + salary);
+//		System.out.println("Employee BU : " + businessUnit);
+//		System.out.println("Employee Age : " + age);
 //
 //	}
+	
+	
 
-//	public void getSbuDetails() {
-//		System.out.println("sbu details = SBU [ subCode =" + businessUnit.getSbuId() + "sbuName = " + businessUnit.getSbuName() + "sbuHead = " + businessUnit.getSbuHead() + " ]");
-//		
-//	}
+	public void displayEmployeeDeatils() {
+		
+		System.out.println("Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary + ", age="
+				+ age + "]");
+		
+		getSbuDetails();
+		
+		
+
+	}
+
+	public void getSbuDetails() {
+		System.out.println("sbu details = SBU [ subCode =" + businessUnit.getSbuId() + "sbuName = " + businessUnit.getSbuName() + "sbuHead = " + businessUnit.getSbuHead() + " ]");
+		
+	}
 
 	@Override
 	public String toString() {
