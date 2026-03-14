@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- bean definitions here -->
+
+	<!--   <bean id = "emp1" class = "com.cg.bean.Employee" >
+         <property name="employeeId" value="12345" /> 
+         <property name="employeeName" value="yogendra" /> 
+         <property name="salary" value="500000" /> 
+         <property name="businessUnit" ref="sbu" />
+         <property name="age" value="21" /> 
+         </bean>
+         
+         <bean id = "sbu" class = "com.cg.bean.SBU">
+         <property name="sbuId" value="54321" /> 
+         <property name="sbuName" value="SOGETI" /> 
+         <property name="sbuHead" value="Smith" /> 
+         <property name="empList" >
+         <list>
+         <ref bean = "emp1" />
+         <ref bean = "emp2" />
+         <ref bean = "emp3" />
+         </list>
+         </property>
+         </bean>
+         
+         <bean id = "emp2" class = "com.cg.bean.Employee" >
+         <property name="employeeId" value="12" /> 
+         <property name="employeeName" value="yogendra" /> 
+         <property name="salary" value="500000" /> 
+         <property name="businessUnit" ref="sbu" />
+         <property name="age" value="21" /> 
+         </bean>
+         
+         <bean id = "emp3" class = "com.cg.bean.Employee" >
+         <property name="employeeId" value="123" /> 
+         <property name="employeeName" value="yogendra" /> 
+         <property name="salary" value="500000" /> 
+         <property name="businessUnit" ref="sbu" />
+         <property name="age" value="21" /> 
+         </bean> -->
+
+
+	<context:annotation-config />
+	<context:property-placeholder location="classpath:data.properties" />
+	<context:component-scan base-package="com" />
+
+</beans>
