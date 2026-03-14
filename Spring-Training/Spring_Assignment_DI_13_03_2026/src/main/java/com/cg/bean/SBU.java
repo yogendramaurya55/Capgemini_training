@@ -1,9 +1,12 @@
 package com.cg.bean;
 
+import java.util.List;
+
 public class SBU {
 	private int sbuId;
 	private String sbuName;
 	private String sbuHead;
+	private List<Employee> empList;
 	
 	public SBU(){
 		super();
@@ -31,6 +34,19 @@ public class SBU {
 
 	public void setSbuHead(String subHead) {
 		this.sbuHead = subHead;
+	}
+
+	public List<Employee> getEmpList() {
+		return empList;
+	}
+
+	public void setEmpList(List<Employee> empList) {
+		this.empList = empList;
+	}
+
+	@Override
+	public String toString() {
+		return "SBU [sbuId=" + sbuId + ", sbuName=" + sbuName + ", sbuHead=" + sbuHead + "]";
 	}
 	
 	
