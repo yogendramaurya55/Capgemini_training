@@ -45,15 +45,16 @@ public class SpringBootDataDi16032026Application {
 		
 		SBU sbu = ctx.getBean(SBU.class);
 		
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("Enter the employee id ");
+//		int id = sc.nextInt();
 		
-		System.out.println("Enter the employee id ");
-		int id = sc.nextInt();
-		
+		System.out.println(sbu);
 		sbu.getEmpList().forEach(e -> {
-			if(e.getEmployeeId() == id) {
+			
 				e.displayEmployeeDeatils();
-			}
+			
 		});
 		
 	}
