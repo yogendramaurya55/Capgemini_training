@@ -79,7 +79,7 @@ public class Employee {
 		System.out.println("Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary + ", age="
 				+ age + "]");
 		
-		getSbuDetails();
+//		getSbuDetails();
 		
 		
 
