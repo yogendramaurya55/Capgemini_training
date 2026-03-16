@@ -1,5 +1,7 @@
 package com.cg;
 
+import java.util.Scanner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,7 +19,7 @@ public class SpringBootDataDi16032026Application {
 	public Employee emp1() {
 		Employee e = new Employee();
 		
-		e.setEmployeeId(2);
+		e.setEmployeeId(3);
 		e.setAge(22);
 		e.setSalary(5000000);
 		e.setEmployeeName("sameer");
@@ -43,8 +45,16 @@ public class SpringBootDataDi16032026Application {
 		
 		SBU sbu = ctx.getBean(SBU.class);
 		
-		System.out.println(sbu);
-		sbu.getEmpList().forEach(e -> e.displayEmployeeDeatils());
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the employee id ");
+		int id = sc.nextInt();
+		
+		sbu.getEmpList().forEach(e -> {
+			if(e.getEmployeeId() == id) {
+				e.displayEmployeeDeatils();
+			}
+		});
 		
 	}
 

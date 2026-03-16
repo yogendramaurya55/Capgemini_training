@@ -14,8 +14,8 @@ public class Employee {
 	private String employeeName;
 //	@Value(value = "${emp.salary}")
 	private double salary;
-	@Autowired
-	private SBU businessUnit;
+//	@Autowired
+//	private SBU businessUnit;
 //	@Value(value = "${emp.age}")
 	private int age;
 
@@ -47,13 +47,13 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public SBU getBusinessUnit() {
-		return businessUnit;
-	}
-
-	public void setBusinessUnit(SBU businessUnit) {
-		this.businessUnit = businessUnit;
-	}
+//	public SBU getBusinessUnit() {
+//		return businessUnit;
+//	}
+//
+//	public void setBusinessUnit(SBU businessUnit) {
+//		this.businessUnit = businessUnit;
+//	}
 
 	public int getAge() {
 		return age;
@@ -85,16 +85,16 @@ public class Employee {
 
 	}
 
-	public void getSbuDetails() {
-		System.out.println("sbu details = SBU [ subCode =" + businessUnit.getSbuId() + "sbuName = " + businessUnit.getSbuName() + "sbuHead = " + businessUnit.getSbuHead() + " ]");
-		
-	}
-
-	@Override
-	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary
-				+ ", businessUnit=" + businessUnit + ", age=" + age + "]";
-	}
+//	public void getSbuDetails() {
+//		System.out.println("sbu details = SBU [ subCode =" + businessUnit.getSbuId() + "sbuName = " + businessUnit.getSbuName() + "sbuHead = " + businessUnit.getSbuHead() + " ]");
+//		
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary
+//				+ ", businessUnit=" + businessUnit + ", age=" + age + "]";
+//	}
 	
 	
 }
