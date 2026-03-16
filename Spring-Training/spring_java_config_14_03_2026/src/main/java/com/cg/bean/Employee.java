@@ -4,27 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class Employee {
 	@Value(value = "${emp.id}")
 	private int empid;
 	@Value(value = "${emp.name}")
 	private String name;
-	@Autowired
+//	@Autowired
 	private Address address;
 	
 	
 	
 	
-	public Employee() {
-		super();
-	}
-	public Employee(int empid, String name, Address address) {
-		super();
-		this.empid = empid;
-		this.name = name;
+//	public Employee() {
+//		super();
+//	}
+//	
+
+	public Employee(Address address) {
 		this.address = address;
 	}
+
 	public int getEmpid() {
 		return empid;
 	}

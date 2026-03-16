@@ -9,8 +9,9 @@ public class EmployeeMain {
 	public static void main(String[] args)  {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(javaConfig.class);
 				
-		Employee emp = ctx.getBean("emp1" , Employee.class);
+		Employee emp = ctx.getBean(Employee.class);
 		
 		emp.getEmployeeDetails();
+		
 	}
 }
