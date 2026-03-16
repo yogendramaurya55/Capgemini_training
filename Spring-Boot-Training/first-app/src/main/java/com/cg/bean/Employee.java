@@ -10,19 +10,15 @@ public class Employee {
 	private int empid;
 	@Value(value = "${emp.name}")
 	private String name;
-//	@Autowired
+	@Autowired
 	private Address address;
 	
 	
-//	public Employee() {
-//		super();
-//	}
-//	
-
-	public Employee(Address address) {
-		this.address = address;
+	
+	
+	public Employee() {
+		super();
 	}
-
 	public int getEmpid() {
 		return empid;
 	}
@@ -42,11 +38,13 @@ public class Employee {
 		this.address = address;
 	}
 	
-	public void getEmployeeDetails() {
+	public void printDetails() {
 		System.out.println("empid : " + empid);
 		System.out.println("name : " + name);
 		System.out.println("city : " + address.getCity());
 		System.out.println("country : " + address.getCountry());
 		System.out.println("zip : " + address.getZip());
 	}
+	
+
 }
