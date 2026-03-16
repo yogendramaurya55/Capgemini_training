@@ -12,23 +12,13 @@ import com.cg.bean.SBU;
 @SpringBootApplication
 public class SpringBootDataDi16032026Application {
 	
-	@Bean
-	@Primary
-	public SBU sbu1() {
-		SBU s = new SBU();
-		s.setSbuId(1);
-		s.setSbuName("java");
-		s.setSbuHead("sahil");
-		
-		return s;
-	}
+	
 	@Bean
 	public Employee emp1() {
 		Employee e = new Employee();
 		
 		e.setEmployeeId(2);
 		e.setAge(22);
-		e.setBusinessUnit(sbu1());
 		e.setSalary(5000000);
 		e.setEmployeeName("sameer");
 		
@@ -41,9 +31,9 @@ public class SpringBootDataDi16032026Application {
 		
 		e.setEmployeeId(2);
 		e.setAge(22);
-		e.setBusinessUnit(sbu1());
+		
 		e.setSalary(5000000);
-		e.setEmployeeName("sameer");
+		e.setEmployeeName("sonam");
 		
 		return e;
 	}

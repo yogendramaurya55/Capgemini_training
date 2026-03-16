@@ -5,18 +5,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-@Component
-@PropertySource("classpath:data.properties")
+//@Component
+//@PropertySource("classpath:data.properties")
 public class Employee {
-	@Value(value = "${emp.id}")
+//	@Value(value = "${emp.id}")
 	private int employeeId;
-	@Value(value = "${emp.name}")
+//	@Value(value = "${emp.name}")
 	private String employeeName;
-	@Value(value = "${emp.salary}")
+//	@Value(value = "${emp.salary}")
 	private double salary;
 	@Autowired
 	private SBU businessUnit;
-	@Value(value = "${emp.age}")
+//	@Value(value = "${emp.age}")
 	private int age;
 
 	public Employee() {
