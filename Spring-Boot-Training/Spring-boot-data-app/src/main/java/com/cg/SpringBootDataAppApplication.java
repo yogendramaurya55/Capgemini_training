@@ -33,7 +33,7 @@ public class SpringBootDataAppApplication {
 //		System.out.println(service.createEmployee(new Employee("Smith", LocalDate.of(2002, 3, 30), 550000)));
 		
 		
-		System.out.println(service.findByEmpSalary(50000000));
+//		System.out.println(service.findByEmpSalary(50000000));
 				
 				
 	    System.out.println(service.findEmpByMonth(2002, 03));
