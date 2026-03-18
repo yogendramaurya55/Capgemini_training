@@ -54,5 +54,11 @@ public class Employee {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Employee [empid=" + empid + ", name=" + name + ", dob=" + dob + ", salary=" + salary + "]";
+	}
+	
+	
 	
 }
