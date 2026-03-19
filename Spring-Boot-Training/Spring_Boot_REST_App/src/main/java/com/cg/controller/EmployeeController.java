@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.dto.EmployeeDTO;
 import com.cg.entity.Employee;
+import com.cg.exception.EmployeeNotFound;
 import com.cg.service.EmployeeService;
 import com.cg.service.IEmployeeService;
 
@@ -33,7 +34,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("get/{id}")
-	public ResponseEntity<EmployeeDTO> getEmploye(@PathVariable int id) {
+	public ResponseEntity<EmployeeDTO> getEmploye(@PathVariable int id) throws EmployeeNotFound {
 		EmployeeDTO e = service.getEmployee(id);
 		if(e != null) {
 			return new ResponseEntity<EmployeeDTO>(e , HttpStatus.OK);
@@ -63,7 +64,7 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("update")
-	public EmployeeDTO updateEmployee(@RequestBody EmployeeDTO emp) {
+	public EmployeeDTO updateEmployee(@RequestBody EmployeeDTO emp) throws EmployeeNotFound {
 		return service.updateEmployee(emp);
 	}
 }

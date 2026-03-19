@@ -1,5 +1,6 @@
 package com.cg.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import com.cg.dao.IEmployeeRepo;
 import com.cg.dto.EmployeeDTO;
 import com.cg.dto.EntityMapper;
 import com.cg.entity.Employee;
+import com.cg.exception.EmployeeNotFound;
 
 @Service
 public class EmployeeService implements IEmployeeService{
@@ -26,7 +28,7 @@ public class EmployeeService implements IEmployeeService{
 	@Override
 	public List<EmployeeDTO> getAllEmployees() {
 		// TODO Auto-generated method stub
-		List<EmployeeDTO> emps = null;
+		List<EmployeeDTO> emps = new ArrayList<>();
 		try {
 			repo.findAll().forEach(e -> {
 				emps.add( EntityMapper.covertEntityToDTO(e));
@@ -54,7 +56,7 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public EmployeeDTO getEmployee(int id) {
+	public EmployeeDTO getEmployee(int id) throws EmployeeNotFound {
 		// TODO Auto-generated method stub
 		Optional<Employee> emp = repo.findById(id);
 		
@@ -62,7 +64,7 @@ public class EmployeeService implements IEmployeeService{
 			Employee e = emp.get();
 			return EntityMapper.covertEntityToDTO(e);
 		}else {
-			return null;
+			throw new EmployeeNotFound("Employee not found");
 		}
 	}
 
@@ -84,7 +86,7 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public EmployeeDTO updateEmployee(EmployeeDTO emp) {
+	public EmployeeDTO updateEmployee(EmployeeDTO emp) throws EmployeeNotFound {
 		// TODO Auto-generated method stub
 		if(getEmployee(EntityMapper.covertObjectToEntity(emp).getEmpid()) != null) {
 		 Employee e = repo.saveAndFlush(EntityMapper.covertObjectToEntity(emp));
@@ -96,7 +98,7 @@ public class EmployeeService implements IEmployeeService{
 
 	@Override
 	public List<EmployeeDTO> findEmpByName(String name) {
-		List<EmployeeDTO> emps = null;
+		List<EmployeeDTO> emps = new ArrayList<>();
 		try {
 	
 			repo.findByName(name).forEach(e -> {

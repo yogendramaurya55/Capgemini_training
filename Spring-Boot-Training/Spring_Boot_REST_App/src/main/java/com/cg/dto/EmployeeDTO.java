@@ -12,6 +12,7 @@ public class EmployeeDTO {
 		super();
 	}
 
+	
 	public EmployeeDTO(int employeeId, String fullName, LocalDate dateOfBirth, double salary) {
 		super();
 		this.employeeId = employeeId;
