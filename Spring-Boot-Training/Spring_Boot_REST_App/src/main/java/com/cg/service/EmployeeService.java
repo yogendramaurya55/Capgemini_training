@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.dao.IEmployeeRepo;
+import com.cg.dto.EmployeeDTO;
+import com.cg.dto.EntityMapper;
 import com.cg.entity.Employee;
 
 @Service
@@ -22,11 +24,14 @@ public class EmployeeService implements IEmployeeService{
 	
 
 	@Override
-	public List<Employee> getAllEmployees() {
+	public List<EmployeeDTO> getAllEmployees() {
 		// TODO Auto-generated method stub
-		List<Employee> emps = null;
+		List<EmployeeDTO> emps = null;
 		try {
-			emps = repo.findAll();
+			repo.findAll().forEach(e -> {
+				emps.add( EntityMapper.covertEntityToDTO(e));
+			});
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -36,10 +41,10 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public Employee createEmployee(Employee emp) {
+	public EmployeeDTO createEmployee(EmployeeDTO emp) {
 		// TODO Auto-generated method stub
 		try {
-			repo.saveAndFlush(emp);
+			repo.saveAndFlush(EntityMapper.covertObjectToEntity(emp));
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -49,16 +54,16 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public Employee getEmployee(int id) {
+	public EmployeeDTO getEmployee(int id) {
 		// TODO Auto-generated method stub
-		Optional<Employee> emp = null;
-		try {
-			emp = repo.findById(id);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+		Optional<Employee> emp = repo.findById(id);
+		
+		if(emp.isPresent()) {
+			Employee e = emp.get();
+			return EntityMapper.covertEntityToDTO(e);
+		}else {
+			return null;
 		}
-		return emp.get();
 	}
 
 	@Override
@@ -79,22 +84,24 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public Employee updateEmployee(Employee emp) {
+	public EmployeeDTO updateEmployee(EmployeeDTO emp) {
 		// TODO Auto-generated method stub
-		if(getEmployee(emp.getEmpid()) != null) {
-		return repo.saveAndFlush(emp);
+		if(getEmployee(EntityMapper.covertObjectToEntity(emp).getEmpid()) != null) {
+		 Employee e = repo.saveAndFlush(EntityMapper.covertObjectToEntity(emp));
+		 return EntityMapper.covertEntityToDTO(e);
 		}
 		
 		return null;
 	}
 
 	@Override
-	public List<Employee> findEmpByName(String name) {
-		// TODO Auto-generated method stub
-		List<Employee> emps = null;
+	public List<EmployeeDTO> findEmpByName(String name) {
+		List<EmployeeDTO> emps = null;
 		try {
 	
-			emps = repo.findByName(name);
+			repo.findByName(name).forEach(e -> {
+				emps.add(EntityMapper.covertEntityToDTO(e));
+			});
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

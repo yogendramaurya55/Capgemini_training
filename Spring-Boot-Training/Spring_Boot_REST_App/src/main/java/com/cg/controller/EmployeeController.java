@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,12 +16,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.dto.EmployeeDTO;
 import com.cg.entity.Employee;
 import com.cg.service.EmployeeService;
 import com.cg.service.IEmployeeService;
 
 @RestController
-@RequestMapping("Employee")
+@RequestMapping("employee")
 public class EmployeeController {
 	
 //	@Autowired
@@ -28,34 +32,38 @@ public class EmployeeController {
 		this.service = service;
 	}
 	
-	@GetMapping("employees/{id}")
-	public Employee getEmploye(@PathVariable int id) {
-		return service.getEmployee(id);
+	@GetMapping("get/{id}")
+	public ResponseEntity<EmployeeDTO> getEmploye(@PathVariable int id) {
+		EmployeeDTO e = service.getEmployee(id);
+		if(e != null) {
+			return new ResponseEntity<EmployeeDTO>(e , HttpStatus.OK);
+		}
+		return new ResponseEntity<EmployeeDTO>( e , HttpStatus.NOT_FOUND);
 	}
 	
-	@GetMapping("/get-all-emps")
-	public List<Employee> getAllEmplyee(){
+	@GetMapping(value ="get-all" , produces = {"application/xml", "application/json"} )
+	public List<EmployeeDTO> getAllEmplyee(){
+		
 		return service.getAllEmployees();
 	}
 	
-	@GetMapping("get-emp-by-name/{name}")
-	public List<Employee> getEmployeeByName(@PathVariable String name ){
+	@GetMapping("get-by-name/{name}")
+	public List<EmployeeDTO> getEmployeeByName(@PathVariable String name ){
 		return service.findEmpByName(name);
 	}
 	
-	@PostMapping("create-emp")
-	public Employee createEmp(@RequestBody Employee emp) {
+	@PostMapping("create")
+	public EmployeeDTO createEmp(@RequestBody EmployeeDTO emp) {
 		 return service.createEmployee(emp);
 	}
 	
-	
-	@DeleteMapping("delete-emp/{id}")
+	@DeleteMapping("delete/{id}")
 	public String deleteEmployee(@PathVariable int id) {
 		return service.removeEmployee(id);
 	}
 	
-	@PutMapping("update-emp")
-	public Employee updateEmployee(@RequestBody Employee emp) {
+	@PutMapping("update")
+	public EmployeeDTO updateEmployee(@RequestBody EmployeeDTO emp) {
 		return service.updateEmployee(emp);
 	}
 }
