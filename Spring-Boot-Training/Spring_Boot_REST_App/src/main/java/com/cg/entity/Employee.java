@@ -14,11 +14,11 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int empid;
+	private Integer empid;
 	private String name;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private LocalDate dob;
-	private double salary;
+	private Double salary;
 	
 	
 	
@@ -27,17 +27,17 @@ public class Employee {
 		super();
 	}
 	
-	public Employee(String name, LocalDate dob, double salary) {
+	public Employee(String name, LocalDate dob, Double salary) {
 		super();
 		
 		this.name = name;
 		this.dob = dob;
 		this.salary = salary;
 	}
-	public int getEmpid() {
+	public Integer getEmpid() {
 		return empid;
 	}
-	public void setEmpid(int empid) {
+	public void setEmpid(Integer empid) {
 		this.empid = empid;
 	}
 	public String getName() {
@@ -52,10 +52,10 @@ public class Employee {
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
-	public double getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
-	public void setSalary(double salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
 	

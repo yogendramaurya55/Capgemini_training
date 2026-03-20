@@ -12,7 +12,7 @@ public interface IEmployeeService {
 	public EmployeeDTO createEmployee(EmployeeDTO emp);
 	public EmployeeDTO getEmployee(int id) throws EmployeeNotFound;
 	public String removeEmployee(int id);
-	public EmployeeDTO updateEmployee(EmployeeDTO emp) throws EmployeeNotFound;
+	public EmployeeDTO updateEmployee(Integer id ,EmployeeDTO emp) throws EmployeeNotFound;
 	public List<EmployeeDTO> findEmpByName(String name);
 	
 	

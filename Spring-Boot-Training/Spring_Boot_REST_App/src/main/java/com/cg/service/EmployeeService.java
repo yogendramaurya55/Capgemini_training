@@ -56,7 +56,7 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public EmployeeDTO getEmployee(int id) throws EmployeeNotFound {
+	public EmployeeDTO getEmployee(int id) {
 		// TODO Auto-generated method stub
 		Optional<Employee> emp = repo.findById(id);
 		
@@ -86,14 +86,28 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	@Override
-	public EmployeeDTO updateEmployee(EmployeeDTO emp) throws EmployeeNotFound {
+	public EmployeeDTO updateEmployee(Integer id ,EmployeeDTO emp) {
 		// TODO Auto-generated method stub
-		if(getEmployee(EntityMapper.covertObjectToEntity(emp).getEmpid()) != null) {
-		 Employee e = repo.saveAndFlush(EntityMapper.covertObjectToEntity(emp));
-		 return EntityMapper.covertEntityToDTO(e);
+		Employee e = repo.findById(id).orElse(null);
+		
+		if(emp.getFullName() != null) {
+			e.setName(emp.getFullName());
 		}
 		
-		return null;
+		if(emp.getDateOfBirth() != null) {
+			e.setDob(emp.getDateOfBirth());
+		}
+		
+		if(emp.getSalary() != null) {
+			e.setSalary(emp.getSalary());;
+		}
+		
+		
+		Employee res = repo.saveAndFlush(e);
+		
+		EmployeeDTO dto = EntityMapper.covertEntityToDTO(res);
+		
+		return dto;
 	}
 
 	@Override

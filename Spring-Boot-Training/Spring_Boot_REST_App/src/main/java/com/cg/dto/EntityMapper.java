@@ -8,6 +8,8 @@ public class EntityMapper {
 	}
 	
 	public static  EmployeeDTO covertEntityToDTO(Employee e) {
-		return new EmployeeDTO( e.getEmpid() , e.getName() , e.getDob() , e.getSalary());
+		return new EmployeeDTO(e.getEmpid() , e.getName() , e.getDob() , e.getSalary());
+		
+		
 	}
 }

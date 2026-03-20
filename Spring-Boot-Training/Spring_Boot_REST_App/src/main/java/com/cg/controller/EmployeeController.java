@@ -22,6 +22,8 @@ import com.cg.exception.EmployeeNotFound;
 import com.cg.service.EmployeeService;
 import com.cg.service.IEmployeeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("employee")
 public class EmployeeController {
@@ -48,23 +50,23 @@ public class EmployeeController {
 		return service.getAllEmployees();
 	}
 	
-	@GetMapping("get-by-name/{name}")
+	@GetMapping(value ="get-by-name/{name}" , produces = {"application/xml", "application/json"} )
 	public List<EmployeeDTO> getEmployeeByName(@PathVariable String name ){
 		return service.findEmpByName(name);
 	}
 	
-	@PostMapping("create")
-	public EmployeeDTO createEmp(@RequestBody EmployeeDTO emp) {
+	@PostMapping(value ="create" , produces = {"application/xml", "application/json"} , consumes = {"application/xml", "application/json"})
+	public EmployeeDTO createEmp(@RequestBody @Valid EmployeeDTO emp) {
 		 return service.createEmployee(emp);
 	}
 	
 	@DeleteMapping("delete/{id}")
-	public String deleteEmployee(@PathVariable int id) {
+	public String deleteEmployee(@PathVariable Integer id) {
 		return service.removeEmployee(id);
 	}
 	
-	@PutMapping("update")
-	public EmployeeDTO updateEmployee(@RequestBody EmployeeDTO emp) throws EmployeeNotFound {
-		return service.updateEmployee(emp);
+	@PutMapping(value ="update/{id}" , produces = {"application/xml", "application/json"} , consumes = {"application/xml", "application/json"})
+	public EmployeeDTO updateEmployee(@PathVariable Integer id ,@RequestBody EmployeeDTO emp){
+		return service.updateEmployee(id , emp);
 	}
 }
