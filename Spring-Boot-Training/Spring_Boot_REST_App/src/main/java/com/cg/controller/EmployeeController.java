@@ -22,10 +22,13 @@ import com.cg.exception.EmployeeNotFound;
 import com.cg.service.EmployeeService;
 import com.cg.service.IEmployeeService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("employee")
+@Tag(name = "EmployeeApi" , description = "This provide the crud operation with employee entity")
 public class EmployeeController {
 	
 //	@Autowired
@@ -35,6 +38,7 @@ public class EmployeeController {
 		this.service = service;
 	}
 	
+	@Operation(summary = "this is used to get employee with the employee id ")
 	@GetMapping("get/{id}")
 	public ResponseEntity<EmployeeDTO> getEmploye(@PathVariable int id) throws EmployeeNotFound {
 		EmployeeDTO e = service.getEmployee(id);

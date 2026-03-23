@@ -24,7 +24,7 @@ import com.music.streaming.platform.service.impl.ArtistServiceImpl;
 @RequestMapping("music/platform/v1/artists")
 public class ArtistController {
 	
-	ArtistService service;
+	private ArtistService service;
 	
 	public ArtistController(ArtistService ars) {
 		this.service = ars;
